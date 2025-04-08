@@ -1,0 +1,45 @@
+<div class="my-16">
+  <app-about-us />
+</div>
+<app-reviews />
+<div class="max-w-screen-xl sm:mx-2 xl:mx-auto lg:mx-auto my-16">
+  <div class="text-center mb-10">
+    <div class="relative inline-block">
+      <p class="head-team">Our Team</p>
+      <span class="relative z-10 head-title">Meet Our Expert <span class="sub-title">Team</span>
+      </span>
+      <div class="bgk"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+    @for (team of teams; track team) {
+    <div class="expert-card">
+      <img [src]="team.image" alt="member.name" />
+      <div class="content">
+        <h3>{{team.name}}</h3>
+        <p>{{team.position}}</p>
+      </div>
+      <div class="team-line"></div>
+      <div class="flex justify-center gap-8 sm:gap-6 md:gap-2 lg:gap-4 xl:gap-8 mt-3">
+        <a [href]="team.social.facebook" class="icon">
+          <img src="images/icons/facebook.png" alt="">
+        </a>
+        <a [href]="team.social.instagram" class="icon">
+          <img src="images/icons/insta.png" alt="">
+        </a>
+        <a [href]="team.social.twitter" class="icon">
+          <img src="images/icons/twitter.png" alt="">
+        </a>
+        <a [href]="team.social.youtube" class="icon">
+          <img src="images/icons/youtube.png" alt="">
+        </a>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<app-delivery-info />
+<app-about-instgram />
+<app-trust-companies />

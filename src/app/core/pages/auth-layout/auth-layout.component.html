@@ -1,0 +1,39 @@
+<div class="container mx-auto mt-10 relative">
+    
+    <div class="flex items-center justify-center bg-gray-50 shadow-lg rounded-lg">
+        <!-- Top Right - Language & Signup Buttons -->
+        <div class="absolute top-2 right-5 flex space-x-4">
+            <!-- Language Selector -->
+            <select class="bg-white text-primary border-pink-500  rounded-3xl shadow-lg hover:brightness-110 transition duration-300">
+              <option value="en">English</option>
+              <option value="ar">العربية</option>
+            </select>
+
+            <!-- Signup Button -->
+           
+        </div>
+
+        <!-- Left Side - Image -->
+        <div class="hidden md:flex w-1/2 bg-pink-100 items-center justify-center rounded-lg shadow-2xl p-10">
+            <img src="icons/rose-logo.svg" alt="Login Image" class="w-full" />
+        </div>
+        
+        <!-- Right Side - Login Form -->
+        <div class="w-full md:w-1/2 flex flex-col items-center justify-center p-10 relative">
+            <h2 class="text-4xl font-extrabold text-[#F82BA9] text-center mb-8 tracking-wide animate-slideIn">{{title}}</h2>
+        
+            @if (isSignIn) {
+                <app-login (changeState)="toggleState($event)" />
+                } @else if (forgetPass) {
+                <app-forget-password (changeState)="toggleState($event)" />
+                } @else if (verify) {
+                <app-verify (changeState)="toggleState($event)" />
+                } @else if (setPass) {
+                <app-set-password (changeState)="toggleState($event)" />
+                }
+
+        </div>
+    </div>
+</div>
+
+<!-- Tailwind Styles for Input Fields -->

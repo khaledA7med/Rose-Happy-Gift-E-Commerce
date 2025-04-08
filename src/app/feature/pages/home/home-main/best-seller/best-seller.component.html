@@ -1,0 +1,38 @@
+<div class="max-w-screen-xl container px-4">
+    <div class="best-seller grid grid-cols-1 lg:grid-cols-12 items-start">
+        <div class="description lg:col-span-3">
+            <span class="header text-primary uppercase">Premium Gifts</span>
+            <div class="desc my-8">
+                <h1 class="heading text-dark-blue">Best <span class="seller-gifts text-primary">Seller <br> Gifts</span>
+                    And
+                    Products</h1>
+                <p class="sub-heading">
+                    Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate. Neque
+                    quidem qui et autem dolor dicta necessitatibus ut ad.
+                </p>
+            </div>
+            <div>
+                <button type="button" class="text-white rounded-lg px-5 py-2.5 text-center inline-flex items-center">
+                    Explore More
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+        <div class="carousel lg:col-span-9 flex flex-col gap-6 ">
+            <owl-carousel-o [options]="customOptions">
+                @for (item of allBestSeller; track $index){
+                <ng-container>
+                    <ng-template carouselSlide>
+                        <popular-card [cardData]="item"></popular-card>
+                    </ng-template>
+                </ng-container>
+                }
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>

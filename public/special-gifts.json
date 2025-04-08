@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "title": "Start $10.99",
+    "desc": "Special Gifts Box For Your Love",
+    "images": ["images/Red.png"]
+  },
+  {
+    "id": 2,
+
+    "title": "Best Gift Shop",
+    "subTitle": "Choose Perfect Gifts From Us",
+    "desc": "Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.",
+    "images": [
+      "images/Background1.png",
+      "images/Background2.png",
+      "images/Background3.png"
+    ]
+  },
+  {
+    "id": 3,
+
+    "title": "Gifts Box",
+    "desc": "Awesome Gifts Box Collections",
+    "images": ["images/Confettilyingnearpresent.png "]
+  },
+  {
+    "id": 4,
+
+    "title": "Occasion Gifts",
+    "subTitle": "Choose Perfect Gifts From Us",
+    "desc": "Best Occasion Gifts Collections",
+    "images": ["images/Topview.png"]
+  },
+  {
+    "id": 5,
+
+    "title": "Occasion Gifts",
+    "subTitle": "Choose Perfect Gifts From Us",
+    "desc": "Best Occasion Gifts Collections",
+    "images": ["images/Christmascart.png"]
+  }
+]

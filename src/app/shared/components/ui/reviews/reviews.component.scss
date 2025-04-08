@@ -1,0 +1,69 @@
+.review-sec {
+  padding: 20px 0;
+}
+
+:host ::ng-deep {
+  owl-carousel-o {
+    .owl-theme {
+      // Custom Navigation Arrows
+      // .owl-nav {
+      //   position: absolute;
+      //   bottom: 30px;
+      //   right: 30px;
+      //   display: flex;
+      //   gap: 10px; // مسافة بين الأزرار
+
+      //   .owl-prev,
+      //   .owl-next {
+      //     width: 45px;
+      //     height: 45px;
+      //     background-color: var(--primary-color);
+      //     border-radius: 50%; // Fully rounded
+      //     color: #fff;
+      //     font-size: 30px;
+      //     display: flex;
+      //     align-items: center;
+      //     justify-content: center;
+      //     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // إضافة ظل خفيف
+      //     transition: all 0.3s ease-in-out;
+
+      //     // Disable hover effects
+      //     &:hover {
+      //       background-color: white;
+      //       color: black;
+      //       transform: scale(1.1); // تكبير بسيط عند المرور عليه
+      //     }
+      //   }
+      // }
+
+      // Custom Dots
+      .owl-dots {
+        text-align: center;
+        margin-top: 1rem;
+        position: absolute;
+        bottom: 25px;
+        right: 50%;
+        transform: translateX(50%);
+
+        .owl-dot {
+          span {
+            width: 10px;
+            height: 10px;
+            background-color: #fff; // Default dot color
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+          }
+
+          &.active {
+            span {
+              width: 24px; // Active dot width
+              background-color: #fff; // Active dot color
+              border-radius: 5px; // Slightly rounded rectangle for active dot
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<div class="container max-w-screen-xl">
+  <!-- Header Section -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 ">
+    <!-- First Grid Section (3 columns) -->
+    @if (gifts[0]) {
+    <div class="md:col-span-3 rounded-[20px] ">
+      <!-- Gift Box for gifts[0] -->
+      <div class="relative bg-white rounded-lg shadow-lg overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center"
+          [ngStyle]="{ 'background-image': 'url(' + gifts[0].images + ')' }"></div>
+
+        <!-- Content (Aligned to the Left) -->
+        <div class="relative z-10 p-6 h-96 flex flex-col justify-end items-start">
+          <h2 class="text-2xl font-bold text-white  uppercase">{{gifts[0].title}}</h2>
+          <p class="text-gray-200 my-2">{{gifts[0].desc}}</p>
+          <button class="btn-primary">
+            Shop Now <img src="images/Icon.svg" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+    }
+
+    <!-- Second Grid Section (9 columns) -->
+    <div class="md:col-span-9 ">
+      <app-special-gifts-slider [gifts]="gifts"></app-special-gifts-slider>
+    </div>
+  </div>
+
+  <!-- Grid Layout for Gifts Starting from Index 2 -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+    @for (gift of gifts.slice(2); track $index) {
+    <div class="relative bg-white shadow-lg overflow-hidden rounded-[40px] w-full h-96">
+      <!-- Background Image -->
+      <div class="absolute inset-0 w-full h-full bg-cover bg-center"
+        [ngStyle]="{ 'background-image': 'url(' + gift.images + ')' }"></div>
+
+      <!-- Content (Aligned to the Right) -->
+      <div class="relative z-10 py-6 h-full flex flex-col justify-center items-end text-right m-6">
+        <!-- Dynamic Title Styling -->
+        <div>
+          <h2 [ngClass]="{
+                  'text-white': gift.id === 5,
+                  'text-primary': gift.id !== 5
+                }" class="text-2xl font-bold">
+            {{gift.title}}
+          </h2>
+        </div>
+        <!-- Description -->
+        <p class="mt-6">{{gift.desc}}</p>
+
+        <!-- Buttons -->
+        @if (gift.title === 'Gifts Box') {
+        <button class="btn-rounded mt-12 flex text-white">Shop Now <img src="images/Icon.svg" alt=""></button>
+        }
+        @if (gift.title !== 'Gifts Box') {
+        <button class="btn-rounded mt-12">Discover Now <img src="images/Icon.svg" alt=""></button>
+        }
+      </div>
+    </div>
+    }
+  </div>
+
+
+</div>

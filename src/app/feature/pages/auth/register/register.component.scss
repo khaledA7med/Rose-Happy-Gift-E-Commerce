@@ -1,0 +1,7 @@
+.auth-text {
+  font-family: var(--font-inter);
+}
+.login {
+  @extend .auth-text;
+  color: var(--primary-color);
+}

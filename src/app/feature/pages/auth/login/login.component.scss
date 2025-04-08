@@ -1,0 +1,14 @@
+.auth-text {
+  font-family: var(--font-inter);
+}
+.register {
+  @extend .auth-text;
+  color: var(--primary-color);
+}
+.forgetPassword {
+  @extend .auth-text;
+  color: var(--primary-color);
+}
+.remind {
+  @extend .auth-text;
+}

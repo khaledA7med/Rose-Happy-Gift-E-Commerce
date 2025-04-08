@@ -1,0 +1,69 @@
+<div class="w-full max-w-sm bg-white card relative overflow-hidden">
+  <!-- Product Image with Overlay -->
+  <div class="cover relative group m-4">
+    <img class="rounded-lg object-cover w-[300px] h-[275px]" [src]="cardData.imgCover" alt="Product image" />
+
+    <!-- Overlay -->
+    <div id="overlay"
+      class="absolute inset-0 bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-70 transition-opacity duration-300">
+      <!-- Icons inside the overlay -->
+      <div class="flex space-x-4">
+        <button (click)="viewProduct(cardData.id)" class="p-2 rounded-full shadow-lg z-30">
+          <img src="icons/eye.svg" class="h-5 w-5" alt="View Icon">
+        </button>
+        <button (click)="addToWishlist($event)" class="p-2 rounded-full shadow-lg  z-30">
+          <img src="icons/heart.svg" class="h-5 w-5" alt="Wishlist Icon">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Details -->
+  <div class="px-4 py-4">
+    <h5 class="mb-2 item-title">
+      {{ cardData.title }}
+    </h5>
+
+    <!-- Ratings -->
+    <div class="flex items-center mt-2.5 mb-5">
+      <div class="flex items-center space-x-1">
+        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+        </svg>
+        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+        </svg>
+        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+        </svg>
+        <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+          viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+        </svg>
+        <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor" viewBox="0 0 22 20">
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Price & Add to Cart -->
+    <div class="flex items-center justify-between mt-2.5">
+      <div>
+        <span class="priceAfterDiscount mx-2">{{ cardData.priceAfterDiscount | currency }}</span>
+        <span class="price line-through">{{ cardData.price | currency }}</span>
+      </div>
+      <button class="bag-icon m-2" (click)="addToCart(cardData.id,1)">
+        <img src="icons/add-cart.svg" class="h-6 w-6" alt="Bag Icon">
+      </button>
+    </div>
+  </div>
+</div>

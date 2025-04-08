@@ -1,0 +1,28 @@
+<div class="gift-carousel-container relative rounded-[20px]">
+  @if (gifts.length > 1) {
+  <owl-carousel-o [options]="sliderOptions">
+    @if (gifts[1].images.length) {
+    @for (img of gifts[1].images; track img) {
+    <ng-template carouselSlide>
+      <!-- Carousel Item with Background Image -->
+      <div class="relative h-96 flex items-center justify-start bg-cover bg-center rounded-[20px] shadow-lg"
+        [ngStyle]="{ 'background-image': 'url(' + img + ')' }">
+        <!-- Overlay for Better Text Visibility -->
+        <div class="absolute inset-0 rounded-[50px]"></div>
+
+        <!-- Content (Aligned to the Left) -->
+        <div class="relative z-10 flex flex-col items-start text-left p-6 w-[370px]">
+          <h4 class="font-bold uppercase">{{ gifts[1].title }}</h4>
+          <h2 class="text-3xl font-bold mt-2">Choose Perfect <span>Gifts</span> From Us</h2>
+          <p class="text-lg mt-3">{{ gifts[1].desc }}</p>
+          <!-- Button -->
+          <button class="mt-4 btn-primary text-sm flex ">Shop Now <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </ng-template>
+    }
+    }
+  </owl-carousel-o>
+  }
+</div>

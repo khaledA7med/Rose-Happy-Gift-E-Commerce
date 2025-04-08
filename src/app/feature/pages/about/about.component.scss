@@ -1,0 +1,82 @@
+.bgk {
+  width: 338px;
+  height: 17px;
+  border-radius: 0 20px 20px 0;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
+  position: absolute;
+  background-color: var(--secondary-color);
+}
+
+.line {
+  left: 0;
+  z-index: 111;
+  width: 53px;
+  height: 2px;
+  position: absolute;
+  background: var(--primary-color);
+}
+
+.head-team {
+  font-size: 17px;
+  line-height: 30.6px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-family: var(--font-roboto);
+}
+
+.head-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36.31px;
+  color: var(--dark-blue);
+}
+
+.sub-title {
+  color: var(--primary-color);
+}
+
+.expert-card {
+  padding: 24px 24px 16px 24px;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .team-line {
+    width: 100%;
+    border: 1px solid #757f95;
+  }
+  .content {
+    margin: 15px 0;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 20.57px;
+    font-family: var(--font-inter);
+    h3 {
+      color: var(--dark-blue);
+    }
+    p {
+      color: var(--primary-color);
+    }
+  }
+  .icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    padding: 8px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,56 @@
+<form class="space-y-4" [formGroup]="loginForm">
+    <div>
+        <input type="email" name="email" id="email" formControlName="email" [ngClass]="{
+            'border-red-500 dark:border-red-600':  (loginControls.email.touched || submitted) && (loginControls.email.hasError('pattern') ||
+            loginControls.email.hasError('required'))
+          }"
+            class="auth-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="Email" />
+        @if((loginControls.email.touched || submitted) && loginControls.email.hasError('required')){
+        <p class="text-red-500 text-sm mt-1">
+            Email is required.
+        </p> } @else if (loginControls.email.hasError('pattern')) {
+        <p class="text-red-500 text-sm mt-1">Email is Invalid</p>
+        }
+    </div>
+    <div>
+        <input type="password" name="password" id="password" placeholder="Password" formControlName="password"
+            [ngClass]="{
+            'border-red-500 dark:border-red-600':  (loginControls.password.touched || submitted) && (loginControls.password.hasError('pattern') ||
+            loginControls.password.hasError('required') || loginControls.password.hasError('minlength'))
+          }"
+            class="auth-input bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+        @if((loginControls.password.touched || submitted) && loginControls.password.hasError('required')){
+        <p class="text-red-500 text-sm mt-1">Password is Required</p>
+        } @else if (loginControls.password.hasError('minlength')) {
+        <p class="text-red-500 text-sm mt-1">Password must be at least 8 characters long</p>
+        } @else if (loginControls.password.hasError('pattern')) {
+        <p class="text-red-500 text-sm mt-1">Password must contain at least one special character ,one
+            uppercase letter and one
+            number</p>
+        }
+    </div>
+    <div class="flex justify-between">
+        <div class="flex items-start">
+            <div class="flex items-center h-5">
+                <input id="remember" type="checkbox" value=""
+                    class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
+            </div>
+            <label for="remember" class="remind text-sm ms-2 leading-5 text-left font-normal">Remind
+                me</label>
+        </div>
+        <button type="button" (click)="forgetPassword()"
+            class="forgetPassword text-sm text-left font-semibold  leading-5 hover:underline">Forgot
+            Password
+        </button>
+    </div>
+    <div class="text-sm text-center font-medium text-gray-500 dark:text-gray-300">
+        No account? <button type="button" (click)="registerAccount()"
+            class="register text-sm hover:underline text-left leading-5 font-semibold">
+            Create one here
+        </button>
+    </div>
+    <div class="flex justify-center">
+        <app-auth-button [label]="'Login'" [loading]="loading" (clicked)="signin()"></app-auth-button>
+    </div>
+</form>

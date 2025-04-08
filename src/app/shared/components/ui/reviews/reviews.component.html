@@ -1,0 +1,11 @@
+<div class="review-sec" style="background-image: url('images/review-bg.png');">
+  <owl-carousel-o [options]="sliderOptions">
+    @for(review of reviews ; track review) {
+    <ng-container>
+      <ng-template carouselSlide>
+        <app-review-card [reviewData]="review"></app-review-card>
+      </ng-template>
+    </ng-container>
+    }
+  </owl-carousel-o>
+</div>

@@ -1,0 +1,33 @@
+@use '../public/scss/base/variables';
+@use '../public/scss/utilities/color';
+@use '../public//scss/components/buttons.scss';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+  
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities{
+
+    .text-primary{
+
+        color: #F82BA9;
+
+@layer utilities {
+    .text-primary {
+      color: #F82BA9;
+    }
+    .text-dark-blue {
+      color: #160E4B;
+    }
+}
+    }
+  }

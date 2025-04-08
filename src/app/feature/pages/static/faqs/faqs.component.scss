@@ -1,0 +1,22 @@
+.title {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  color: var(--dark-blue);
+  margin-bottom: 15px;
+}
+
+.content {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 36px;
+  letter-spacing: 0%;
+  color: #797979;
+  .sub {
+    color: var(--dark-blue);
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+}

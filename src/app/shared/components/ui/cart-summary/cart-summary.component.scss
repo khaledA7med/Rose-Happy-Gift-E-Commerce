@@ -1,0 +1,46 @@
+.summary-card {
+  min-width: 304.8px;
+  min-height: 415.6px;
+  background-color: var(--secondary-color);
+  padding: 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .title {
+    color: var(--dark-blue);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 21.6px;
+    font-family: var(--font-inter);
+  }
+  .content {
+    .title {
+      color: var(--dark-blue);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 28.8px;
+      font-family: var(--font-roboto);
+    }
+    .sub {
+      color: #757f95;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 28.8px;
+      font-family: var(--font-roboto);
+    }
+    .sub-total {
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 28.8px;
+      font-family: var(--font-roboto);
+    }
+  }
+  .check-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    color: #fff;
+  }
+}

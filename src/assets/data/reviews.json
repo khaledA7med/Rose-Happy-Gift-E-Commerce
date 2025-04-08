@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Ahmed Mohamed",
+    "position": "Customer",
+    "image": "images/reviews/hero.jpg",
+    "review": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum deserunt esse provident.",
+    "rating": 5
+  },
+  {
+    "name": "Ahmed Mohamed",
+    "position": "Customer",
+    "image": "images/reviews/hero.jpg",
+    "review": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum deserunt esse provident.",
+    "rating": 2
+  },
+  {
+    "name": "Ahmed Mohamed",
+    "position": "Customer",
+    "image": "images/reviews/hero.jpg",
+    "review": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum deserunt esse provident.",
+    "rating": 3
+  },
+  {
+    "name": "Ahmed Mohamed",
+    "position": "Customer",
+    "image": "images/reviews/hero.jpg",
+    "review": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum deserunt esse provident.",
+    "rating": 4
+  }
+]

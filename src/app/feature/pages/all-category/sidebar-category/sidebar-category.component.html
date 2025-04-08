@@ -1,0 +1,90 @@
+<!-- Mobile Filter Button -->
+<button (click)="toggleSidebar()"
+  class="md:hidden fixed bottom-4 right-4 bg-primary text-white px-4 py-2 rounded-full shadow-lg z-50">
+  <i [class]="open ? 'fas fa-times' : 'fas fa-filter'"></i>
+  Filters
+</button>
+
+<!-- Overlay for mobile -->
+<div *ngIf="open" (click)="toggleSidebar()" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40">
+</div>
+
+<!-- Sidebar -->
+<div [class]="'transform transition-transform duration-300 ease-in-out ' + 
+            (open ? 'translate-x-0' : '-translate-x-full md:translate-x-0') + 
+            ' fixed md:relative left-0 top-0 h-full md:h-auto z-40 bg-white overflow-y-auto'" class="w-[302px]">
+
+  <div class="card m-4 rounded-[20px] p-[24px] shadow-lg">
+    <input type="text" id="floating_standard"
+      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-800 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-900 focus:outline-none focus:ring-0 focus:border-blue-900 peer"
+      placeholder=" " [(ngModel)]="keyword" />
+    <label for="floating_standard"
+      class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-10 -z-10 origin-[0] peer-focus:start-10 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Search
+      Products
+    </label>
+  </div>
+  <!-- Category Section -->
+  <div class="card mb-6 rounded-[20px] p-[24px] shadow-lg">
+    <h2 class="text-lg font-bold mb-5 text-dark-blue relative">Category</h2>
+    <div class="line"></div>
+    <div class="space-y-2 mt-11">
+      @for (category of categories; track category._id) {
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <input type="checkbox" (change)="getIdCategory($event,category._id)" [id]="category._id"
+            class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded" />
+          <label [for]="category._id" class="ml-2 text-gray-700 hover:text-gray-600 cursor-pointer">
+            {{ category.name }}
+          </label>
+        </div>
+        <span class="text-gray-600">({{ category.productsCount }})</span>
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Price Range Section -->
+  <div class="card mb-6 rounded-[20px] p-[24px] shadow-lg">
+    <h2 class="text-lg font-bold mb-5 text-dark-blue relative">Price Rating</h2>
+    <div class="line"></div>
+
+    <div class="flex flex-col text-center space-x-2 mt-11">
+      <span class="text-primary text-left font-bold mb-1">
+        ${{ priceFrom | number:'1.2-2'}} - ${{ priceTo | number:'1.2-2'}}
+      </span>
+
+      <ngx-slider [(value)]="priceFrom" [(highValue)]="priceTo" [options]="options"
+        (userChange)="changePrice($event)"></ngx-slider>
+    </div>
+  </div>
+
+  <!-- Ratings Section -->
+  <div class="card mb-6 rounded-[20px] p-[24px] shadow-lg">
+    <h2 class="text-lg font-bold mb-5 text-dark-blue relative">Ratings</h2>
+    <div class="line"></div>
+    <div class="space-y-2 mt-11">
+      @for (rating of ratings; track rating.stars) {
+      <div class="flex items-center space-x-3 mb-3">
+        <input type="checkbox" (change)="getIdRates($event,rating.stars)"
+          class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded" />
+        <div class="flex space-x-1">
+          @for (star of [1,2,3,4,5]; track star) {
+          <i class="text-xl"
+            [class]="star <= rating.stars ? 'fas fa-star text-primary' : 'far fa-star text-gray-300'"></i>
+          }
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="card mb-6 rounded-[20px] p-[12px] shadow-lg flex justify-center items-center">
+    <!-- Apply Filters Buuton -->
+    <button (click)="applyFilters()" class="w-full bg-primary text-white p-2 mx-2 rounded-[20px]">Apply
+      Filters</button>
+    <!-- Clear Filters Button -->
+    <button (click)="clearFilters()" class="w-full bg-gray-400 text-white p-2 rounded-[20px]">
+      Clear Filters
+    </button>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+.head-title {
+    font-size: 30px; /* Size of the text */
+    font-weight: 700; /* Bold font weight */
+    line-height: 36.31px; /* Adjust line height for text spacing */
+    color: var(--dark-blue); /* Primary color for text */
+    text-align: center; /* Ensure text is centered */
+}
+
+
+.bgk {
+    position: absolute;
+    top: 22px; /* Distance between text and background */
+    left: 50%; /* Position from the left to center it */
+    transform: translateX(-50%); /* Center the background with the text */
+    background-color: var(--secondary-color); /* Secondary color */
+    z-index: 0; /* Positioned behind the text */
+    border-radius: 0 20px 20px 0; /* Smooth rounded corners */
+    height: 17px; /* Background height */
+    width: 410px; /* Set a fixed width in pixels */
+    padding: 0 10px; /* Optional: Adjust padding to add some space around the text */
+}
+
+.line {
+    position: absolute;
+    left: 50%;
+    bottom: 0; /* Position it directly below the text */
+    transform: translateX(-133%); /* Center it horizontally */
+    width: 150px; /* Increased width for a more prominent line */
+    height: 2px; /* Line thickness */
+    background: var(--primary-color); /* Primary color for the line */
+    z-index: 1; /* Line should be above the background and behind the text */
+}

@@ -1,0 +1,36 @@
+<form class="space-y-4" [formGroup]="verifyForm">
+    <div>
+        <input type="number" name="number" id="number" formControlName="resetCode" [ngClass]="{
+            'auth-input border-red-500 dark:border-red-600':  (verifyControls.resetCode.touched || submitted) && (verifyControls.resetCode.hasError('pattern') ||
+            verifyControls.resetCode.hasError('required') || verifyControls.resetCode.hasError('minlength'))
+          }"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="Enter Code" />
+        @if((verifyControls.resetCode.touched || submitted) && verifyControls.resetCode.hasError('required')){
+        <p class="text-red-500 text-sm mt-1">Code is Required</p>
+        } @else if (verifyControls.resetCode.hasError('minlength') || verifyControls.resetCode.hasError('maxlength')) {
+        <p class="text-red-500 text-sm mt-1">Code must be 6 numbers</p>
+        } @else if (verifyControls.resetCode.hasError('pattern')) {
+        <p class="text-red-500 text-sm mt-1">Code must be only numbers</p>
+        }
+
+        <!-- resend code -->
+        <div class="text-right mt-3">
+            @if(!resendDisabled){
+            <span class="rec">
+                Didn't receive a code?
+            </span>
+            <span (click)="resendCode()" class="recover hover:underline">
+                Resend
+            </span>
+            } @else if (resendDisabled) {
+            <span class="recover">
+                Resend in {{ timeRemaining }} seconds
+            </span>
+            }
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <app-auth-button [label]="'Verify'" [loading]="loading" (clicked)="verifyOtp()"></app-auth-button>
+    </div>
+</form>

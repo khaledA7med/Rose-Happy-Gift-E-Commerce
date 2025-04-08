@@ -1,0 +1,35 @@
+<div class="summary-card">
+    <h2 class="title">Cart Summary</h2>
+    <div class="content space-y-2">
+        <div class="flex justify-between text-gray-700">
+            <span class="title">Sub Total:</span>
+            <span class="sub">${{cartData.totalPrice}}</span>
+        </div>
+        <div class="flex justify-between text-gray-700">
+            <span class="title">Discount:</span>
+            <span class="sub">${{cartData.discount}}</span>
+        </div>
+        <div class="flex justify-between text-gray-700">
+            <span class="title">Shipping:</span>
+            <span class="sub">Free</span>
+        </div>
+        <div class="flex justify-between text-gray-700">
+            <span class="title">Taxes:</span>
+            <span class="sub">${{cartData.totalPrice * 0.14 | number: '1.1'}}</span>
+        </div>
+        <div class="flex justify-between mt-4 text-xl font-bold">
+            <span class="title">Total:</span>
+            <span class="sub-total">${{cartData.discount + cartData.totalPrice + (cartData.totalPrice * 0.14)}}</span>
+        </div>
+    </div>
+    <div class="flex justify-end">
+        <button class="check-btn">
+            Checkout Now <svg class="w-6 h-6 text-white inline-block" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 12H5m14 0-4 4m4-4-4-4" />
+            </svg>
+
+        </button>
+    </div>
+</div>

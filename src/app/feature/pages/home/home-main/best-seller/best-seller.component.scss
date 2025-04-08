@@ -1,0 +1,41 @@
+.description {
+  // width: 301px;
+  button {
+    background-color: var(--primary-color);
+  }
+
+  .header {
+    font-family: var(--font-roboto);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 30.6px;
+    letter-spacing: 4px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+  .desc {
+    .heading {
+      font-family: var(--font-inter);
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 40.8px;
+      text-align: left;
+    }
+    .sub-heading {
+      font-family: var(--font-roboto);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28.8px;
+      text-align: left;
+      color: #757f95;
+    }
+  }
+}
+
+@media (min-width: 376px) and (max-width: 940px) {
+  .carousel {
+    margin: 15px;
+  }
+}

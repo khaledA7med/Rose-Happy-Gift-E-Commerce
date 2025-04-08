@@ -1,0 +1,10 @@
+<div class="max-w-screen-xl container p-12">
+    <div class="grid lg:grid-cols-6 sm:grid-cols-2 items-start gap-4">
+        <div class="lg:col-span-5 md:col-span-2 sm:col-span-6">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="lg:col-span-1 md:col-span-2 sm:col-span-6">
+            <app-cart-summary [cartData]="summaryData"></app-cart-summary>
+        </div>
+    </div>
+</div>

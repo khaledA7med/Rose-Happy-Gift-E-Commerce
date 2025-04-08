@@ -1,0 +1,50 @@
+<div class="container my-20">
+  <h1 class="mb-2 mt-4 font-normal text-[30px]">Create account</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submitForm()" class="space-y-4">
+    
+    <app-form-input formControlName="firstName" [placeholder]="'First Name'"></app-form-input>
+    <span *ngIf="isFieldInvalid('firstName')" class="text-red-500 text-xs">
+      ❌ First name must be at least 2 characters long.
+    </span>
+
+    <app-form-input formControlName="lastName" [placeholder]="'Last Name'"></app-form-input>
+    <span *ngIf="isFieldInvalid('lastName')" class="text-red-500 text-xs">
+      ❌ Last name must be at least 2 characters long.
+    </span>
+
+    <app-form-input formControlName="phone" [type]="'tel'" [placeholder]="'Phone Number'"></app-form-input>
+    <span *ngIf="isFieldInvalid('phone')" class="text-red-500 text-xs">
+      ❌ Invalid phone number format.
+    </span>
+
+    <app-form-input formControlName="email" [type]="'email'" [placeholder]="'Email'"></app-form-input>
+    <span *ngIf="isFieldInvalid('email')" class="text-red-500 text-xs">
+      ❌ Please enter a valid email address.
+    </span>
+
+    <app-form-input formControlName="password" [type]="'password'" [placeholder]="'Password'"></app-form-input>
+    <span *ngIf="isFieldInvalid('password')" class="text-red-500 text-xs">
+      ❌ Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.
+    </span>
+
+    <app-form-input formControlName="rePassword" [type]="'password'" [placeholder]="'Confirm Password'"></app-form-input>
+    <span *ngIf="form.errors?.['passwordMismatch'] && (form.controls['rePassword'].touched || submitted)" class="text-red-500 text-xs">
+      ❌ Passwords do not match.
+    </span>
+
+    <app-form-input formControlName="gender" [placeholder]="'Enter your gender'"></app-form-input>
+    <span *ngIf="isFieldInvalid('gender')" class="text-red-500 text-xs">
+      ❌ Gender is required.
+    </span>
+
+    <p class="text-center my-20 font-normal">
+      Already have an account?  
+      <a routerLink="/login" class="text-primary font-normal underline">Login</a>
+    </p>
+
+    <button type="submit" class="btn-rounded w-full my-40 p-4 text-base font-medium">
+      Create Account
+    </button>
+  </form>
+</div>

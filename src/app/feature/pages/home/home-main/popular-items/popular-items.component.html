@@ -1,0 +1,32 @@
+<div class="max-w-screen-xl sm:mx-2 xl:mx-auto lg:mx-auto my-16">
+  <div class="grid sm:grid-cols-2 items-center p-6">
+    <div class="relative inline-block">
+      <span class="relative z-10 head-title">Popular Items</span>
+      <div class="bgk"></div>
+      <div class="line"></div>
+    </div>
+
+    <div
+      class="text-sm font-medium text-center text-gray-500 flex justify-self-end dark:text-gray-400 dark:border-gray-700">
+      <ul class="flex flex-wrap -mb-px list">
+        @for (category of allCategories.slice(0,4); track category) {
+        <li class="me-2">
+          <a (click)="setActiveCategory(category._id)" [class.active]="activeCategory === category._id"
+            class="inline-block p-4 pb-1 border-b-2 border-transparent rounded-t-lg cursor-pointer">{{category.name}}</a>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-4 sm:grid-cols-2">
+    @for (item of allProducts; track item) {
+    <popular-card class="flex justify-center" [cardData]="item" (addToCart)="handleAddToCart(item)"></popular-card>
+    }
+  </div>
+  @if (allProducts.length ==0) {
+  <div class="text-center">
+    <span class="text-red-800 font-bold">No Products For this item</span>
+  </div>
+  }
+</div>

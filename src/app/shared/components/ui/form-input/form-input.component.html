@@ -1,0 +1,17 @@
+<div class="w-full">
+    <input 
+      [type]="type" 
+      [placeholder]="placeholder" 
+      [value]="value"
+      (blur)="onBlur()"
+      [required]="required"
+      (input)="onInputChange($event)"
+      class="w-full px-4 py-3 my-4 rounded-[20px] text-[#797979] border-[#0000001A] shadow-md focus:ring focus:ring-blue-300 
+           transition-all duration-200 ease-in-out"
+    />
+    
+    <div *ngIf="required && !value" class="text-red-500 text-xs mt-1">
+      {{ errorMessage }}
+    </div>
+  </div>
+  
