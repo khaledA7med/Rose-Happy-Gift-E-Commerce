@@ -1,1 +1,0 @@
-var r={home:{categories:"categories",bestSeller:"best-seller",products:"products"},product:{products:"products",singleProduct:t=>`/products/${t}`,relatedProducts:t=>`/products?category=${t}`}};export{r as a};
